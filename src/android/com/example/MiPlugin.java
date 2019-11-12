@@ -45,7 +45,7 @@ public class MiPlugin extends CordovaPlugin {
     }
     return true;
   }
-/*
+
   String api_key = "unf79ci2coafe9utuu2hvgr2c4";
 
     @Override
@@ -114,5 +114,5 @@ public class MiPlugin extends CordovaPlugin {
         }
 
     };
-*/
+
 }
