@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="mi-plugin"
+    version="1.0.0">
+    <name>Cordova Plugin Template</name>
+    <description></description>
+    <license>MIT</license>
+    <keywords></keywords>
+    <repo>https://github.com/thecouk/ionic-cordova-plugin-template.git</repo>
+    
+
+    <!-- android -->
+    <platform name="android">
+      <js-module src="www/plugin.js" name="plugin">
+        <runs/>
+
+        <!-- Este es el nombre por el cual se accedera el plugin -->
+        <clobbers target="MiPlugin" />
+      </js-module>
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="MiPlugin">
+          <param name="android-package" value="com.example.MiPlugin" />
+          <param name="onload" value="true" />
+        </feature>
+        <feature name="MainActivity">
+          <param name="android-package" value="com.example.MainActivity" />
+          <param name="onload" value="true" />
+        </feature>
+      </config-file>
+      <config-file target="AndroidManifest.xml" parent="/*">
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        <uses-permission android:name="android.permission.INTERNET" />
+      </config-file>
+
+      <application
+        android:allowBackup="true"
+        android:name=".MyApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="com.tutelatechnologies.sdk.framework.TutelaSDKService"
+            android:enabled="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            />
+      </application>
+
+      <source-file src="src/android/com/example/MiPlugin.java" target-dir="src/com/example/" />
+      <source-file src="src/android/com/example/MainActivity.java" target-dir="src/com/example/" />
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <js-module src="www/plugin.js" name="plugin">
+            <runs/>
+            <clobbers target="MiPlugin" />
+        </js-module>
+        <config-file target="config.xml" parent="/*">
+            <feature name="MiPlugin">
+                <param name="ios-package" value="MiPlugin" onload="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/MiPlugin.h" />
+        <source-file src="src/ios/MiPlugin.m" />
+    </platform>
+</plugin>
